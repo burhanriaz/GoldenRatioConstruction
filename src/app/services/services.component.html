@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="main">
+    <!-- <section class="hero">
+  <div class="hero-content">
+    <h1>Services</h1>
+    <p>Home / Pages / About</p>
+  </div>
+</section> -->
+<!-- <app-count></app-count> -->
+
+<div class="services-section">
+
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <img [src]="service.image" alt="{{ service.title }}">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  

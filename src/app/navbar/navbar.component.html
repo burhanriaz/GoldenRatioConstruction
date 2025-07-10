@@ -1,0 +1,24 @@
+<div class="main">
+  <header class="navbar">
+    <div class="logo">
+      <img src="./assets/logo.png" alt="Bin Yousaf Logo" />
+    </div>
+
+    <div class="hamburger" (click)="toggleMenu()">
+      ☰
+    </div>
+
+    <ul class="nav-links" [class.active]="menuOpen">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/ser">Services</a></li>
+      <li><a routerLink="/pr">Project</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+      <li>
+        <a routerLink="/arabic">
+          <img src="./assets/saudi.png" alt="AR" /> AR
+        </a>
+      </li>
+    </ul>
+  </header>
+</div>

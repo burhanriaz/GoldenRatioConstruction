@@ -1,0 +1,20 @@
+<div class="main-navbar-wrapper" dir="rtl"> <header class="navbar">
+    <div class="logo">
+      <img src="./assets/logo.png" alt="Bin Yousaf Logo"> </div>
+
+    <div class="hamburger" (click)="toggleMenu()">
+      ☰
+    </div>
+
+    <ul class="nav-links" [class.active]="menuOpen"> <li><a routerLink="/arabic">الرئيسية</a></li>
+      <li><a routerLink="/About">من نحن</a></li>
+      <li><a routerLink="/as">الخدمات</a></li>
+      <li><a routerLink="/ap">المشاريع</a></li>
+      <li><a routerLink="/ac">اتصل بنا</a></li>
+      <li>
+        <a routerLink="/" class="language-switcher"> <img src="./assets/en.png" alt="English"> EN
+        </a>
+      </li>
+    </ul>
+  </header>
+</div>

@@ -1,0 +1,292 @@
+/* ------------------ COMMON STYLES ------------------ */
+.main {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #C1D0D9;
+  height: 10vh; /* Consider using a fixed height in px for more predictability */
+  padding: 0 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box; /* Ensures padding doesn't increase total width */
+}
+
+.logo img {
+  width: 75px;
+  height: 65px;
+  border-radius: 50%;
+  display: block; /* Removes any extra space below the image */
+}
+
+.nav-links {
+  display: flex;
+  margin-right: 100px;
+  gap: 25px;
+  list-style: none;
+  align-items: center;
+  padding: 0; /* Reset default padding */
+}
+
+.nav-links li a {
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  padding-bottom: 5px;
+  display: block; /* Ensures the whole link area is clickable for pseudo-element */
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background-color: black;
+  bottom: 0px; /* Adjusted to be right at the bottom of the link text */
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none; /* Hidden by default, shown in media queries */
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 50px;
+  /* Added for better touch target */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.nav-links img {
+  height: 18px;
+  width: 30px;
+  vertical-align: middle; /* Aligns image with text */
+}
+
+/* ------------------ ADVANCED MEDIA QUERIES ------------------ */
+
+/* Small Mobile Devices (0px to 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 10px;
+    height: 60px;
+  }
+
+  .logo img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .nav-links {
+    /* Styles for mobile menu when open */
+    flex-direction: column;
+    position: absolute; /* Position relative to the nearest positioned ancestor (body or .main if main is not fixed) */
+    top: 60px; /* Below the navbar height */
+    width: 100%;
+    left: 0; /* Align to the left edge */
+    background-color: #ffffff;
+    padding: 15px 0;
+    gap: 15px; /* Slightly reduced gap for smaller screens */
+    display: none; /* Hidden by default */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 0; /* Remove right margin */
+    align-items: center; /* Center items in column layout */
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+    padding: 10px 20px; /* Added padding for better tap targets */
+    width: 100%; /* Make links take full width of the menu */
+    text-align: center; /* Center text within wider link area */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon */
+    margin-right: 20px; /* Adjust margin for smaller screens */
+  }
+}
+
+/* Medium Mobile Devices (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .navbar {
+    height: 65px;
+    padding: 0 15px; /* Slightly more padding */
+  }
+
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 65px; /* Below the navbar height */
+    width: 100%;
+    left: 0;
+    background-color: #ffffff;
+    padding: 15px 0;
+    gap: 20px;
+    display: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 0;
+    align-items: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li a {
+    font-size: 17px;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+    margin-right: 30px;
+  }
+}
+
+/* Tablets (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+    height: 70px;
+    padding: 0 25px;
+  }
+
+  .logo img {
+    width: 65px;
+    height: 65px;
+  }
+
+  /* Hamburger menu for tablets */
+  .hamburger {
+    display: block; /* Show hamburger icon for tablets */
+    margin-right: 40px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Below the navbar height */
+    width: 100%;
+    left: 0;
+    background-color: #dad9d9;
+    padding: 20px 0;
+    gap: 25px;
+    display: none; /* Hidden by default */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 0;
+    align-items: center;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .nav-links li a {
+    font-size: 17px;
+    padding: 12px 25px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Laptops (1025px to 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .navbar {
+    height: 80px; /* Slightly increased height */
+    padding: 0 30px;
+  }
+
+  .logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-links {
+    display: flex; /* Ensure it's displayed as flex for desktop */
+    flex-direction: row; /* Ensure it's a row */
+    position: static; /* Reset positioning from mobile styles */
+    top: auto;
+    width: auto;
+    left: auto;
+    background-color: transparent; /* No background color for desktop */
+    padding: 0;
+    gap: 20px;
+    box-shadow: none; /* No shadow for desktop */
+    margin-right: 100px; /* Restore original margin */
+    align-items: center;
+  }
+
+  .nav-links li a {
+    font-size: 17px;
+    padding-bottom: 5px; /* Restore original padding */
+    width: auto;
+    text-align: left;
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger for laptops */
+  }
+}
+
+/* Large Screens (Desktops) (1367px and up) */
+@media (min-width: 1367px) {
+  .navbar {
+    height: 90px; /* Further increased height */
+    padding: 0 40px;
+  }
+
+  .logo img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    top: auto;
+    width: auto;
+    left: auto;
+    background-color: transparent;
+    padding: 0;
+    gap: 30px;
+    box-shadow: none;
+    margin-right: 100px;
+    align-items: center;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+    padding-bottom: 5px;
+    width: auto;
+    text-align: left;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

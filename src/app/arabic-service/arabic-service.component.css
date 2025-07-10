@@ -1,0 +1,210 @@
+.services-section {
+    padding: 30px 10px;
+    text-align: center;
+    background-color: #FFFFFF ;
+  }
+  
+  .services-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #000000;
+  }
+  .services-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Default to 3 columns */
+    width: 80%;
+    margin: 0 auto;
+    gap: 60px;
+  }
+ 
+  .hero {
+  background: url('https://emirfab.com/wp-content/uploads/2023/09/Aluminium-Fabrication-2.jpg') center center/cover no-repeat;
+  position: relative;
+  height: 400px; /* Adjusted to be more flexible, will be overridden by the last hero definition if not careful */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 20px;
+  margin-top: 0; 
+}
+
+/* This hero definition is likely the one you want to keep and refine */
+.hero {
+  background: url('https://emirfab.com/wp-content/uploads/2023/09/Aluminium-Fabrication-2.jpg') center center/cover no-repeat;
+  position: relative;
+  height: 300px; /* A good default height for most screens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+  padding: 0 20px; /* Adjusted padding for better responsiveness */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  margin-top: 30px;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+  margin-bottom: 0.5rem;
+}
+.hero-content p {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem); /* Responsive font size */
+  color: #ccc;
+}
+  .service-card {
+    background: white;
+    height: 400px; /* Fixed height can be problematic, consider min-height or flexible content */
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    transition: transform 0.3s;
+    display: flex; /* Using flexbox for internal content alignment */
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between image, title, and description */
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+  } 
+  
+  .service-card img {
+    width: 100%;
+    height: 65%; /* This fixed percentage might be tricky with `object-fit` and variable content */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .service-card h3 {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #1a1a1a;
+  }
+  
+  .service-card p {
+    color: #666;
+    font-size: 18px;
+    flex-grow: 1; /* Allow paragraph to take up available space */
+  }
+  .main{
+    margin-top: 50px;
+  }
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and larger phones (e.g., landscape orientation) */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    width: 90%;
+    gap: 30px; /* Reduce gap */
+  }
+
+  .service-card {
+    height: auto; /* Allow height to adjust based on content */
+  }
+}
+
+/* Smaller phones (e.g., portrait orientation) */
+@media (max-width: 768px) {
+  .hero {
+    height: 250px; /* Reduce hero height for smaller screens */
+    padding: 0 15px; /* Adjust padding */
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 8vw, 3rem); /* Further adjust font size */
+  }
+
+  .hero-content p {
+    font-size: clamp(1rem, 3.5vw, 1.2rem); /* Further adjust font size */
+  }
+
+  .services-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column */
+    width: 95%;
+    gap: 20px; /* Further reduce gap */
+  }
+
+  .service-card {
+    padding: 15px;
+    height: auto; /* Ensure cards adapt */
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+  }
+
+  .service-card p {
+    font-size: 16px;
+  }
+
+  .service-card img {
+    height: auto; /* Let image height adjust with its aspect ratio */
+    max-height: 200px; /* Optional: cap max height for images on small screens */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero {
+    height: 200px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+
+  .services-section {
+    padding: 20px 5px;
+  }
+
+  .services-section h2 {
+    font-size: 24px;
+  }
+
+  .services-grid {
+    width: 98%;
+  }
+
+  .service-card {
+    padding: 10px;
+  }
+
+  .service-card h3 {
+    font-size: 18px;
+  }
+
+  .service-card p {
+    font-size: 15px;
+  }
+}

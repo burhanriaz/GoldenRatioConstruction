@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Project</h1>
+    <p>Home / Pages / About</p>
+  </div>
+</section>
+  <app-count></app-count>
+
+
+<div class="project-section">
+  <h2>Our Projects</h2>
+  <div class="head">
+  </div>
+  <div class="project-grid">
+    <div class="project-card" *ngFor="let Project of Project">
+      <img [src]="Project.image" alt="{{ Project.title }}">
+      <h3>{{ Project.title }}</h3>
+      <p>{{ Project.description }}</p>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

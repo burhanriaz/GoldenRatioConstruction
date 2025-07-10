@@ -1,0 +1,24 @@
+<app-arabicnar></app-arabicnar>
+
+<section class="hero" dir="rtl">
+  <div class="hero-content">
+    <h1>المشاريع</h1>
+    <p>الرئيسية / الصفحات / المشاريع</p>
+  </div>
+</section>
+<app-arabic-counter></app-arabic-counter>
+
+
+<!-- <app-count></app-count> -->
+
+<div class="project-section" dir="rtl">
+  <h2>مشاريعنا</h2>
+  <div class="project-grid">
+    <div class="project-card" *ngFor="let Project of ProjectList">
+      <img [src]="Project.image" alt="{{ Project.title }}">
+      <h3>{{ Project.title }}</h3>
+      <p>{{ Project.description }}</p>
+    </div>
+  </div>  
+</div>
+<app-foo-a></app-foo-a>

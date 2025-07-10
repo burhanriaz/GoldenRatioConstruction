@@ -1,0 +1,24 @@
+<app-arabicnar></app-arabicnar>
+<section class="hero">
+    <div class="hero-content">
+      <h1>الخدمات</h1>
+      <p>الرئيسية / الصفحات / من نحن</p>
+    </div>
+  </section>
+<app-arabic-counter></app-arabic-counter>
+<div class="main" dir="rtl">
+  <div class="head">
+    
+  </div>
+  <div class="services-section">
+    <h2>خدماتنا</h2>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <img [src]="service.image" alt="{{ service.title }}">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-foo-a></app-foo-a>

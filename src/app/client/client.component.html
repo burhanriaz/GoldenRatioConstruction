@@ -1,0 +1,15 @@
+<section class="clients-section">
+  <h2>OUR CLIENTS</h2>
+  <div class="carousel-container">
+    <div class="carousel-track" #carouselTrack>
+      <div class="carousel-group" *ngFor="let group of [1, 2]">
+        <div class="carousel-item" *ngFor="let logo of logos">
+          <img [src]="logo" alt="Client Logo" />
+        </div>
+         &nbsp; &nbsp;
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+

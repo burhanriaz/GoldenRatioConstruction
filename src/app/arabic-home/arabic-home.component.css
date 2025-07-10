@@ -1,0 +1,174 @@
+/* --- Global Resets & Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* --- Hero Section Wrapper (Background Image and Overall Layout) --- */
+.hero-section-wrapper {
+  background-image: url('/assets/fractal_urban_planning_01.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center; /* Vertically centers the hero-content */
+  /* CORRECTED: To place content on the RIGHT side in RTL, use flex-start */
+  justify-content: flex-start; /* Aligns content to the right edge (start in RTL) */
+  /* Add padding to the right of the wrapper to control spacing from the edge */
+  padding-right: 8%; /* This will create the space from the right edge */
+  padding-left: 2%; /* Optional: Add some padding on the left side too */
+
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: Overlay for better text readability on busy backgrounds */
+.hero-section-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;/* Re-enabled overlay for readability */
+  z-index: 1;
+}
+
+/* --- Hero Content (Text and Button Container) --- */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 600px; /* Limit content width for readability */
+  width: 100%; /* Ensure it takes available width up to max-width */
+  /* Text and content aligned to the right within its own box */
+  text-align: right;
+
+  /* Remove previous margin-right/left as padding-right on wrapper handles spacing */
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  color: black;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  margin-bottom: 2rem;
+  color: black;
+  line-height: 1.5;
+}
+
+.hero-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  color: black;
+  font-weight: bolder;
+  background: transparent;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #26D48C;
+  color: white;
+  border-color: #26D48C;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablets and larger phones (e.g., 768px to 1024px) */
+@media (max-width: 1024px) {
+  .hero-section-wrapper {
+    min-height: 70vh;
+    padding-right: 5%; /* Adjust padding for slightly less wide screens */
+    padding-left: 2%;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
+    max-width: 500px; /* Slightly reduce max-width on tablets */
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    margin-top: 50px;
+  }
+
+  .hero-content p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .hero-button {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small mobile devices (e.g., up to 767px) */
+@media (max-width: 767px) {
+  .hero-section-wrapper {
+    min-height: 60vh;
+    /* On small screens, it's often better to center content rather than push hard right */
+    justify-content: center; /* Center content horizontally on small screens */
+    padding-right: 1rem; /* Adjust padding for smaller screens */
+    padding-left: 1rem;
+  }
+
+  .hero-content {
+    padding: 1rem;
+    max-width: 90%; /* Occupy most of the screen width */
+    text-align: center; /* Center the text for full mobile experience */
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-content p {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+    width: 100%; /* Make button full width on small mobile */
+    max-width: 250px; /* But limit its maximum width */
+  }
+}
+
+/* Very small mobile devices (e.g., iPhone SE) */
+@media (max-width: 400px) {
+  .hero-section-wrapper {
+    min-height: 50vh;
+  }
+
+  .hero-content {
+    padding: 0.8rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(0.8rem, 3.8vw, 1rem);
+  }
+}

@@ -1,0 +1,45 @@
+# Angular build and environment files
+/dist
+/out-tsc
+/tmp
+/.angular
+/angular
+
+# Compiled output
+*.js
+*.js.map
+
+# Environment files
+/src/environments/environment*.ts
+
+# Node dependencies
+/node_modules/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Coverage directory used by testing tools
+/coverage
+
+# Angular Language Service
+/.angular/cache

@@ -1,0 +1,138 @@
+/* -------- Base Styles -------- */
+.main {
+  background-image: url('/assets/fractal_urban_planning_01.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.image-section {
+  padding-top: 100px;
+  margin-left: 100px;
+  color: black;
+  max-width: 700px;
+}
+
+.image-section h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.image-section p {
+  font-size: 23px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+#bottone1 {
+ padding-left: 33px;
+ padding-right: 33px;
+ padding-bottom: 16px;
+ padding-top: 16px;
+ border-radius: 9px;
+ background: black;
+ border: none;
+ font-family: inherit;
+ text-align: center;
+ cursor: pointer;
+ transition: 0.4s;
+ color: white;
+}
+
+#bottone1:hover {
+ box-shadow: 15px 15px 100px -14px black;
+}
+
+#bottone1:active {
+ transform: scale(0.97);
+ box-shadow: 17px 15px 56px -10px black;
+}
+@media (max-width: 480px) {
+  .image-section {
+    margin-left: 20px;
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  .image-section h1 {
+    font-size: 24px;
+  }
+
+  .image-section p {
+    font-size: 16px;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn button {
+    width: 140px;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Medium Mobile (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .image-section {
+    margin-left: 30px;
+    padding-top: 60px;
+    text-align: center;
+  }
+
+  .image-section h1 {
+    font-size: 28px;
+  }
+
+  .image-section p {
+    font-size: 17px;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn button {
+    width: 150px;
+    font-size: 16px;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .image-section {
+    margin-left: 50px;
+    padding-top: 80px;
+  }
+
+  .image-section h1 {
+    font-size: 32px;
+  }
+
+  .image-section p {
+    font-size: 19px;
+  }
+}
+
+/* Laptop (1025px - 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .image-section {
+    margin-left: 80px;
+    padding-top: 100px;
+  }
+
+  .image-section h1 {
+    font-size: 36px;
+  }
+
+  .image-section p {
+    font-size: 21px;
+  }
+}

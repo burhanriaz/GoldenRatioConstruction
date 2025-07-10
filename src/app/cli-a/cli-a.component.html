@@ -1,0 +1,14 @@
+<section class="clients-section" dir="rtl">
+  <h2>عملاؤنا</h2>
+  <div class="carousel-container">
+    <div class="carousel-track" #carouselTrack>
+      <!-- Repeat the logo groups to ensure smooth infinite scroll -->
+      <div class="carousel-group" *ngFor="let group of [1, 2, 3,4,5]">
+        <div class="carousel-item" *ngFor="let logo of logos">
+          <img [src]="logo" alt="شعار العميل" />
+        </div>
+        &nbsp; &nbsp;
+      </div>
+    </div>
+  </div>
+</section>

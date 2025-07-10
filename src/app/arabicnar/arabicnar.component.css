@@ -1,0 +1,427 @@
+/* --- Global Resets & Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Essential for consistent sizing */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Fallback font */
+  /* Consider a specific Arabic font if available for better display */
+}
+
+/* --- Main Navbar Wrapper --- */
+.main-navbar-wrapper { /* Renamed from .main */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* cursor: pointer; Removing cursor for the whole wrapper, it should be on clickable elements */
+}
+
+/* --- Navbar Header --- */
+header.navbar { /* Specificity for header.navbar */
+  display: flex;
+  justify-content: space-between; /* Pushes logo to right, links/hamburger to left in RTL */
+  align-items: center;
+  background-color: #C1D0D9;
+  height: 9vh; /* Use vh for responsive height, but consider min-height in px */
+  min-height: 60px; /* Ensure a minimum height */
+  padding: 0 20px; /* Add padding for left/right edges */
+  position: fixed;
+  top: 0;
+  right: 0; /* Align to right for RTL fixed positioning */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Logo --- */
+.logo img {
+  width: 75px;
+  height: 65px;
+  border-radius: 50%;
+  /* In RTL, margin-right moves it away from the right edge */
+  margin-right: 100px;
+  display: block; /* Removes any extra space below the image */
+  flex-shrink: 0; /* Prevents logo from shrinking on smaller screens */
+}
+
+.logo {
+  cursor: pointer;
+}
+
+/* --- Navigation Links (Desktop) --- */
+.nav-links {
+  display: flex;
+  /* margin-left: 150px; */
+  list-style: none;
+  gap: 25px; /* Space between links */
+  align-items: center;
+  /* In RTL, margin-left pushes it away from the left edge */
+  margin-left: 300px; /* Adjusted from original to allow more space for the logo and avoid conflicts */
+  padding: 0; /* Reset default ul padding */
+  transition: all 0.3s ease; /* For smooth transitions on menu open/close */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 20px; /* Consistent font size */
+  color: #2e2929;
+  font-weight: bold; /* Use bold for prominence */
+  position: relative;
+  padding-bottom: 5px; /* Space for the underline */
+  padding-left: 0; /* Resetting padding-left for RTL - use gap for spacing */
+  padding-right: 0;
+  padding-top: 2;
+  white-space: nowrap; /* Prevent link text from wrapping */
+}
+
+/* Underline Effect for Links */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  /* For RTL, the underline should start from the right */
+  right: 0;
+  top: 2;
+  bottom: 0px; /* Adjusted to be right at the bottom of the link text */
+  width: 0%;
+  height: 3px;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Language Switcher Image */
+.nav-links img {
+  height: 17px;
+  width: 30px;
+  vertical-align: middle; /* Aligns image with text */
+  margin-left: 5px; /* Space between image and text in RTL */
+}
+
+/* --- Hamburger Icon (Mobile) --- */
+.hamburger {
+  display: none; /* Hidden by default on desktop */
+  font-size: 30px;
+  cursor: pointer;
+  /* In RTL, padding-left is used to push it away from the left edge */
+  padding-left: 20px;
+  flex-shrink: 0; /* Prevents hamburger from shrinking */
+  /* Added for better touch target */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* --- Active state for mobile menu (controlled by JS/Angular) --- */
+.nav-links.active {
+  display: flex; /* Show the menu when active */
+  /* Add animation properties if needed here for the overall container */
+}
+
+
+/* ------------------------------------ */
+/* --- ADVANCED MEDIA QUERIES (RTL) --- */
+/* ------------------------------------ */
+
+/* Small Mobile Devices (0px - 480px) */
+@media (max-width: 480px) {
+  header.navbar {
+    height: 70px;
+    padding: 0 10px; /* Smaller horizontal padding */
+  }
+
+  .logo img {
+    width: 60px;
+    height: 50px;
+    margin-right: 15px; /* Smaller margin for logo */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger */
+    padding-left: 15px; /* Smaller padding for hamburger */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px; /* Below the navbar height */
+    right: 0; /* Align to the right edge */
+    left: 0;
+    background-color: #fff;
+    flex-direction: column; /* Stack links vertically */
+    width: 100%;
+    height: auto; /* Allow height to adjust to content */
+    display: none; /* Hidden by default */
+    padding: 15px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* Smaller gap for mobile links */
+    align-items: center; /* Center items horizontally in column layout */
+    overflow-y: auto; /* Enable scrolling if menu content is too long */
+    max-height: calc(100vh - 70px); /* Max height to prevent overflow, considering navbar height */
+  }
+
+  .nav-links li {
+    width: 100%; /* Make list items take full width */
+    text-align: center; /* Center link text */
+    margin: 5px 0; /* Reduce vertical margin */
+    /* Animation properties for individual items */
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideIn 0.4s forwards;
+  }
+
+  .nav-links li a {
+    font-size: 1rem; /* Smaller font size for mobile */
+    padding: 10px 0; /* Increase vertical padding for better tap targets */
+    width: 100%; /* Make the clickable area full width */
+  }
+
+  .nav-links li a::after {
+    /* Adjust underline for centered mobile links if needed, but default works */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
+  }
+}
+
+/* Medium Mobile Devices (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  header.navbar {
+    height: 75px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    width: 65px;
+    height: 55px;
+    margin-right: 20px;
+  }
+
+  .hamburger {
+    display: block;
+    padding-left: 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    display: none;
+    padding: 20px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    align-items: center;
+    overflow-y: auto;
+    max-height: calc(100vh - 75px);
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    margin: 7px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideIn 0.4s forwards;
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+    padding: 12px 0;
+    width: 100%;
+  }
+
+  .nav-links li a::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  header.navbar {
+    height: 80px;
+    padding: 0 25px;
+  }
+
+  .logo img {
+    width: 70px;
+    height: 60px;
+    margin-right: 30px;
+  }
+
+  .hamburger {
+    display: block;
+    padding-left: 25px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    display: none;
+    padding: 25px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    align-items: center;
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideIn 0.4s forwards;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  .nav-links li a::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Laptops (1025px - 1260px) - Your original breakpoint */
+@media (min-width: 1025px) and (max-width: 1260px) {
+  header.navbar {
+    height: 9vh; /* Retain original vh height */
+    min-height: 60px;
+    padding: 0 20px;
+  }
+
+  .logo img {
+    width: 75px;
+    height: 65px;
+    margin-right: 70px; /* Adjusted margin */
+  }
+
+  .hamburger {
+    display: block; /* Hamburger still visible on this breakpoint */
+    padding-left: 25px;
+  }
+
+  .nav-links {
+    /* Mobile menu styles */
+    position: absolute;
+    top: 100%; /* Position right below the navbar */
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    flex-direction: column;
+    width: 100%;
+    display: none; /* Hidden by default */
+    padding: 10px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    align-items: center;
+    overflow-y: auto;
+    max-height: calc(100vh - 9vh); /* Max height to prevent overflow */
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideIn 0.4s forwards;
+    width: 100%; /* Make items full width */
+  }
+
+  .nav-links li a {
+    font-size: 1.25rem; /* Slightly larger for laptops */
+    padding: 12px 0;
+    width: 100%;
+  }
+
+  .nav-links li a::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Specific adjustment for logo on smaller laptops */
+  @media (max-width: 1270px) and (min-width: 1261px) { /* Narrow range just above 1260px */
+    .logo img {
+      margin-right: 70px;
+    }
+  }
+}
+
+/* Desktop (1261px and up) - Back to horizontal layout */
+@media (min-width: 1261px) {
+  .hamburger {
+    display: none; /* Hide hamburger on desktop */
+  }
+
+  .nav-links {
+    display: flex; /* Ensure it's displayed as flex */
+    position: static; /* Reset positioning from mobile styles */
+    top: auto;
+    right: auto;
+    left: auto;
+    background-color: transparent; /* No background color for desktop */
+    flex-direction: row; /* Ensure links are in a row */
+    width: auto;
+    height: auto;
+    padding: 0;
+    box-shadow: none; /* No shadow for desktop */
+    margin-left: 100px; /* Restore original margin */
+    gap: 25px; /* Restore original gap */
+    align-items: center;
+    overflow-y: visible;
+    max-height: none;
+  }
+
+  .nav-links li {
+    text-align: right; /* Default text alignment for RTL links */
+    margin: 0; /* Remove mobile margins */
+    opacity: 1; /* Ensure visible */
+    transform: none; /* Remove mobile transforms */
+    animation: none; /* Remove mobile animations */
+    width: auto; /* Reset width for desktop */
+  }
+
+  .nav-links li a {
+    font-size: 20px; /* Restore desktop font size */
+    padding: 0; /* Reset padding for desktop */
+    padding-bottom: 5px; /* For underline */
+    width: auto; /* Reset width for desktop */
+  }
+
+  .nav-links li a::after {
+    right: 0; /* Underline starts from right for RTL */
+    left: auto;
+    transform: none;
+  }
+}
+
+/* Animation for mobile menu items */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

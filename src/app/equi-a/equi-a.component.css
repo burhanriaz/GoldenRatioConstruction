@@ -1,0 +1,165 @@
+/* --- Global Resets & Base Styles (Ensure these are at the top of your main CSS file) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Crucial for consistent sizing */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333; /* Default text color */
+}
+
+/* --- Equipment Section Wrapper --- */
+.equipment-section-wrapper { /* Renamed from .main */
+  padding: 40px 20px; /* Add vertical and horizontal padding to the section */
+ /* A light background for the section */
+  margin-top: 50px; /* Space from the previous section */
+}
+
+/* --- Section Header --- */
+.section-header { /* Renamed from .image-gallery */
+  text-align: center;
+  margin-bottom: 40px; /* Space below the heading */
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem); /* Responsive font size */
+  font-weight: bold;
+  color: #000000;
+  line-height: 1.2;
+}
+
+/* --- Equipment Gallery Items Container --- */
+.equipment-gallery-items { /* Renamed from .images */
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  gap: 30px; /* Consistent gap between items (adjust as needed) */
+  max-width: 1200px; /* Limit max width of the gallery */
+  margin: 0 auto; /* Center the gallery container itself */
+}
+
+/* --- Individual Equipment Item --- */
+.equipment-item { /* Renamed from .image */
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center image and text horizontally within the item */
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Softer, more modern shadow */
+  padding: 15px;
+  /* Flex-basis: sets a preferred width, allows wrapping and growing */
+  flex: 1 1 300px; /* Grow, shrink, and preferred width of 300px */
+  max-width: 350px; /* Max width to prevent items from becoming too wide on large screens */
+  min-width: 250px; /* Minimum width to prevent items from becoming too small */
+}
+
+.equipment-item img { /* Specificity for img inside equipment-item */
+  width: 100%; /* Make image fill the width of its parent (.equipment-item) */
+  max-width: 300px; /* Limit image intrinsic width */
+  height: 250px; /* Fixed height for consistent image appearance */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.equipment-item img:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+.equipment-item h3 {
+  font-size: 1.25rem; /* Responsive font size for titles */
+  color: #333;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+/* --- Section Divider Line --- */
+.section-divider { /* Renamed from .line */
+  height: 2px;
+  width: 60%; /* Width as percentage */
+  background-color: black;
+  margin: 50px auto 10px auto; /* Center the line horizontally and add margin */
+}
+
+/* ------------------------------------ */
+/* --- ADVANCED MEDIA QUERIES (RTL) --- */
+/* ------------------------------------ */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .equipment-gallery-items {
+    gap: 25px; /* Slightly smaller gap */
+  }
+
+  .equipment-item {
+    flex: 1 1 calc(50% - 20px); /* Two items per row, accounting for gap */
+    max-width: calc(50% - 12.5px); /* Adjusted max-width to ensure two columns fit */
+  }
+  .section-divider {
+    width: 70%; /* Line wider on tablets */
+  }
+}
+
+/* Small mobile devices (up to 767px) */
+@media (max-width: 767px) {
+  .equipment-section-wrapper {
+    padding: 30px 15px; /* Reduced padding for smaller screens */
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem); /* Adjust font size further */
+    margin-bottom: 30px;
+  }
+
+  .equipment-gallery-items {
+    gap: 20px; /* Smaller gap on mobile */
+  }
+
+  .equipment-item {
+    flex: 1 1 100%; /* Single item per row on mobile */
+    max-width: 100%; /* Take full width */
+    padding: 10px; /* Reduced padding */
+  }
+
+  .equipment-item img {
+    height: 200px; /* Slightly shorter images on mobile */
+    margin-bottom: 10px;
+  }
+
+  .equipment-item h3 {
+    font-size: 1.1rem; /* Smaller font for titles */
+  }
+
+  .section-divider {
+    width: 80%; /* Line even wider on mobile */
+    margin-top: 40px;
+  }
+}
+
+/* Very small mobile devices (e.g., iPhone SE, up to 400px) */
+@media (max-width: 400px) {
+  .equipment-section-wrapper {
+    padding: 20px 10px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.5rem, 7vw, 1.8rem);
+  }
+
+  .equipment-gallery-items {
+    gap: 15px;
+  }
+
+  .equipment-item img {
+    height: 180px;
+  }
+
+  .equipment-item h3 {
+    font-size: 1rem;
+  }
+}

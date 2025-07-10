@@ -1,0 +1,143 @@
+/* --- Global Resets & Base Styles (Ensure these are at the top of your main CSS file) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Essential for predictable sizing across all elements */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* General fallback font */
+  line-height: 1.6; /* Improves readability */
+  color: #333; /* Default text color */
+}
+
+/* --- Services Section --- */
+.services-section {
+  padding: 60px 20px; /* Increased vertical padding for better spacing */
+  text-align: center;
+  background-color: #F7F7F7; /* A light background for the section */
+  color: #333; /* Default text color for the section */
+}
+
+.services-section h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem); /* Responsive font size for heading */
+  margin-bottom: 40px; /* More space below the heading */
+  font-weight: bold;
+  color: #000000;
+}
+
+/* --- Services Grid --- */
+.services-grid {
+  display: grid;
+  /* ADVANCED RESPONSIVE GRID: */
+  /* auto-fit: creates as many columns as fit */
+  /* minmax(280px, 1fr): each column is at least 280px wide, but can grow to fill space */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1200px; /* Limit overall grid width for readability on large screens */
+  margin: 0 auto; /* Center the grid container */
+  gap: 30px; /* Consistent spacing between cards (both row and column) */
+}
+
+/* --- Service Card --- */
+.service-card {
+  background: white;
+  /* REMOVED fixed height: Let content define the height for flexibility */
+  min-height: 380px; /* Optional: Set a minimum height if cards must look consistent */
+  display: flex; /* Use flexbox for content within the card */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center; /* Center items horizontally within the card */
+  text-align: center; /* Center text within the card */
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Softer, more modern shadow */
+  padding: 25px; /* Slightly more padding inside the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+.service-card:hover {
+  transform: translateY(-8px); /* More pronounced lift on hover */
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.service-card img {
+  width: 100%; /* Image fills card width */
+  height: 200px; /* Fixed height for consistent image size across cards */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  border-radius: 8px;
+  margin-bottom: 20px; /* More space below the image */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Image specific shadow */
+}
+
+.service-card h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem); /* Responsive font size for title */
+  margin-bottom: 10px; /* Space below title */
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.service-card p {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem); /* Responsive font size for description */
+  color: #666;
+  flex-grow: 1; /* Allows paragraph to take up remaining vertical space */
+  line-height: 1.5;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablets and medium screens (e.g., up to 992px) */
+@media (max-width: 992px) {
+  .services-section {
+    padding: 50px 15px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Allow smaller min-width */
+    gap: 25px; /* Slightly smaller gap */
+  }
+
+  .service-card {
+    min-height: 350px; /* Adjust min-height if needed */
+    padding: 20px;
+  }
+
+  .service-card img {
+    height: 180px; /* Slightly shorter image height */
+  }
+}
+
+/* Small mobile devices (e.g., up to 576px) */
+@media (max-width: 576px) {
+  .services-section {
+    padding: 40px 10px; /* Reduced overall padding */
+  }
+
+  .services-section h2 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem); /* More aggressive font scaling for mobile */
+    margin-bottom: 30px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column layout on small mobiles */
+    gap: 20px; /* Smaller gap */
+    max-width: 90%; /* Allow grid to take more width */
+  }
+
+  .service-card {
+    min-height: auto; /* Allow height to collapse to content */
+    padding: 15px;
+  }
+
+  .service-card img {
+    height: 160px; /* Shorter image on very small screens */
+    margin-bottom: 15px;
+  }
+
+  .service-card h3 {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+  }
+
+  .service-card p {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+}
