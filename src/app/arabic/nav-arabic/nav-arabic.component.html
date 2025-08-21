@@ -1,0 +1,20 @@
+<div class="main-navbar-wrapper" dir="rtl"> <header class="navbar">
+    <div class="logo">
+      <img src="./assets/pics.png" alt=""> </div>
+
+    <div class="hamburger" (click)="toggleMenu()">
+      ☰
+    </div>
+
+    <ul class="nav-links" [class.active]="menuOpen"> <li><a routerLink="/arabic">الرئيسية</a></li>
+      <li><a routerLink="/about-arabic">من نحن</a></li>
+      <li><a routerLink="/service-arabic">الخدمات</a></li>
+      <li><a routerLink="/project-arabic">المشاريع</a></li>
+      <li><a routerLink="/contact-arabic">اتصل بنا</a></li>
+      <li>
+        <a routerLink="/" class="language-switcher"> <img src="./assets/en.png" alt="English"> EN
+        </a>
+      </li>
+    </ul>
+  </header>
+</div>

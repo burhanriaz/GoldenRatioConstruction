@@ -1,3 +1,13 @@
-<!-- <app-navbar></app-navbar> -->
+<!-- English -->
+<app-navbar *ngIf="!isArabic"></app-navbar>
+
+<!-- Arabic -->
+<app-nav-arabic *ngIf="isArabic"></app-nav-arabic>
+
 <router-outlet></router-outlet>
-<!-- <app-footer></app-footer> -->
+
+<!-- English -->
+<app-footer *ngIf="!isArabic"></app-footer>
+
+<!-- Arabic -->
+<app-footer-arabic *ngIf="isArabic"></app-footer-arabic>

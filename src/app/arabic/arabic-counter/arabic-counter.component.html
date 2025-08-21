@@ -1,0 +1,6 @@
+<div #counterSection class="counter-section">
+  <div class="counter-box" *ngFor="let counter of counters">
+    <div class="counter-number" dir="rtl" style="text-align: right;">{{ counter.current | arabicNumbers }}</div>
+    <div class="counter-label" dir="rtl" style="text-align: right;">{{ counter.label | arabicNumbers}}</div>
+  </div>
+</div>
