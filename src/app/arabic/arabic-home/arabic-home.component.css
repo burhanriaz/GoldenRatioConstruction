@@ -12,7 +12,7 @@ body {
 
 /* --- Hero Section Wrapper (Background Image and Overall Layout) --- */
 .hero-section-wrapper {
-  background-image: url('/assets/fractal_urban_planning_01.jpg');
+  background-image: url("/assets/fractal_urban_planning_01.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

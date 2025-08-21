@@ -1,14 +1,20 @@
 {
   "name": "burhan",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "build:pages": "ng build --configuration production",
+    "postbuild:pages": "powershell -NoProfile -Command \"if (Test-Path ./docs/browser/index.html) { robocopy ./docs/browser ./docs /E | Out-Null; Remove-Item ./docs/browser -Recurse -Force }; if (Test-Path ./docs/index.html) { Copy-Item ./docs/index.html ./docs/404.html -Force }; if (!(Test-Path ./docs/.nojekyll)) { New-Item -ItemType File ./docs/.nojekyll -Force | Out-Null }\"",
+    "deploy:pages": "npm run build:pages && npm run postbuild:pages",
+    "preview:docs": "powershell -NoProfile -Command \"Start-Process http://localhost:5500/GoldenRatioConstruction/\" && npx http-server ./docs -p 5500",
+    "clean": "powershell -NoProfile -Command \"if (Test-Path ./docs) { Remove-Item ./docs -Recurse -Force }; if (Test-Path ./dist) { Remove-Item ./dist -Recurse -Force }\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
