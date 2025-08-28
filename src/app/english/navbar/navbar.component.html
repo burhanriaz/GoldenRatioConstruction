@@ -1,24 +1,18 @@
-<div class="main">
-  <header class="navbar">
-    <div class="logo">
-      <img src="./assets/pics.png" alt="Logo" width="200" />
-    </div>
-
-    <div class="hamburger" (click)="toggleMenu()">
-      ☰
-    </div>
-
-    <ul class="nav-links" [class.active]="menuOpen">
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/about">About</a></li>
-      <li><a routerLink="/services">Services</a></li>
-      <li><a routerLink="/project">Project</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
-      <li>
-        <a routerLink="/arabic">
-          <img src="./assets/saudi.png" alt="AR" /> AR
-        </a>
-      </li>
-    </ul>
-  </header>
+<div class="navbar">
+  <div class="logo">
+    <img src="./assets/GRCWhite-removebg-preview2.png" alt="GRC Logo" />
+  </div>
+  <div class="hamburger" (click)="toggleMenu()">☰</div>
+  <ul class="nav-links" [class.active]="menuOpen">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
+    <li><a routerLink="/project" routerLinkActive="active">Project</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    <li>
+      <a routerLink="/arabic" routerLinkActive="active">
+        <img src="./assets/saudi.png" alt="AR" /> AR
+      </a>
+    </li>
+  </ul>
 </div>

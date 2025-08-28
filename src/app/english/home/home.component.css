@@ -10,7 +10,8 @@
 /* Hero with dark overlay so text remains readable */
 .main{
   position:relative;
-  background-image: url('/assets/fractal_urban_planning_01.png');
+  /* background-image: url('assets/fractal_urban_planning_01.png'); */
+   background-image: url('../../../assets/fractal_urban_planning_01.png'); 
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
